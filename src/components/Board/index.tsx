@@ -1,9 +1,17 @@
 import React from 'react';
+import { loadLists } from '../../services/api';
 
-// import { Container } from './styles';
+import { Container } from './styles';
+import List from '../List';
+
+
+const lists = loadLists();
 
 export default function Board() {
   return (
-    <div />
+    <Container>
+      { lists.map( (list: any) => <List key={list.title} data={list}/> )}
+
+    </Container>
   );
 }
